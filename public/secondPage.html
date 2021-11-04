@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Display data from database</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h2>Data selfie App</h2>
+        <div id="database"></div>
+        <script>
+            getinfo()
+            async function getinfo(){
+                const res = await fetch('/api')
+                const data = await res.json()  
+                for(const item of data){
+                    //declarations
+                    const newDiv = document.createElement('div')
+                    const dataDiv =document.getElementById('database')
+                    // const dataDiv = document.createElement('div')
+                    const newPara = document.createElement('p')
+                    const newPara2 = document.createElement('p')
+                    const newPara3 = document.createElement('p')
+                    const img = document.createElement('img')
+                    newDiv.className = 'databaseData'
+                    // dataDiv.className = 'dataDiv'
+                    newPara.className = 'data'
+                    newPara2.className = 'data'
+                    newPara3.className = 'data'
+                    const time = new Date(item.timestamp).toLocaleString()
+                    newPara.textContent = `Mood : ${item.mood}`
+                    newPara2.innerText = `Latitude: ${item.lat}
+                    Longitude:${item.long}`
+                    newPara3.textContent = time
+                    img.alt="Captured Image"
+                    img.src = item.capimages
+                    newDiv.append(newPara,img,newPara3,newPara2)
+                    dataDiv.append(newDiv)
+                    document.body.append(dataDiv)
+                }
+            }
+            
+            </script>
+    </body>
+</html>

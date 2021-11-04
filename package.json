@@ -1,0 +1,21 @@
+{
+  "name": "data-selfie-app",
+  "version": "1.0.0",
+  "description": "A data selfie app-My first app with node and express ",
+  "main": "script.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nedb": "^1.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "data",
+    "selfie",
+    "my-first-app"
+  ],
+  "author": "Zuberia Shabnam",
+  "license": "MIT"
+}
